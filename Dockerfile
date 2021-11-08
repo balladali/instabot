@@ -18,6 +18,7 @@ COPY --from=builder /etc/passwd /etc/passwd
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 # Copy our static executable
 COPY --from=builder /go/bin/instabot /go/bin/instabot
+COPY --from=builder /go/src/instabot/config.yaml /go/bin/instabot/config.yaml
 
 # Run the outyet command by default when the container starts.
 ENTRYPOINT ["/go/bin/instabot"]
